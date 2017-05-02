@@ -24,7 +24,7 @@ public class Personne {
 		String message;
 		message = prenom + " " + nom;
 		if (age != 0)
-			message += " " + age;
+			message += " " + age + " ans";
 		return message;
 	}
 	public String getPrenom() {
