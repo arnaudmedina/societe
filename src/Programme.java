@@ -16,6 +16,11 @@ public class Programme {
 		System.out.println(programmeur.toString());
 
 		System.out.println(amadou.toString());
+		
+		amadou.regulariser("azerty");
+		System.out.println(amadou.toString());
+		amadou.regulariser("simplon");
+		System.out.println(amadou.toString());
 
 	}
 

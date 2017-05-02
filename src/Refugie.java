@@ -28,4 +28,13 @@ public class Refugie extends Personne {
 		message += estRegularise ? ", est regularise" : ", n'est pas régularisé.";
 		return message;
 	}
+public boolean regulariser(String pass){
+	if (pass.contentEquals("simplon")){
+		setEstRegularise(true);
+		return true;
+	}
+	else
+		return false;
+	
+}
 }
