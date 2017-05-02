@@ -20,6 +20,7 @@ public class Refugie extends Personne {
 		super(monPrenom, monNom, monAge);
 		// TODO Auto-generated constructor stub
 	}
+
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
@@ -28,13 +29,21 @@ public class Refugie extends Personne {
 		message += estRegularise ? ", est regularise" : ", n'est pas régularisé.";
 		return message;
 	}
-public boolean regulariser(String pass){
-	if (pass.contentEquals("simplon")){
-		setEstRegularise(true);
-		return true;
+
+	public boolean regulariser(String pass) {
+		if (pass.contentEquals("simplon")) {
+			setEstRegularise(true);
+			return true;
+		} else
+			return false;
+
 	}
-	else
+
+	boolean demenager(String numeroDeVoie, String nomDeVoie, int codePostal, String ville) {
+		if (estRegularise) {
+			monAdresse = new Adresse(numeroDeVoie, nomDeVoie, codePostal, ville);
+			return true;
+		}
 		return false;
-	
-}
+	}
 }

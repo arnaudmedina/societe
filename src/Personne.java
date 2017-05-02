@@ -1,10 +1,10 @@
 
 public class Personne {
 
-	String prenom;
-
-	String nom;
-	int age;
+	private String prenom;
+	private String nom;
+	private int age;
+	protected Adresse monAdresse;
 
 	public Personne(String prenom, String nom) {
 		super();
@@ -25,8 +25,13 @@ public class Personne {
 		message = prenom + " " + nom;
 		if (age != 0)
 			message += " " + age + " ans";
+		if ((monAdresse==null) || (monAdresse.toString().length()==1))
+			return message;
+		else 
+			message += " " + monAdresse.toString();
 		return message;
 	}
+
 	public String getPrenom() {
 		return prenom;
 	}
@@ -50,6 +55,14 @@ public class Personne {
 	public void setAge(int age) {
 		if ((age > 0) && (age < 200))
 			this.age = age;
+	}
+
+	public Adresse getMonAdresse() {
+		return monAdresse;
+	}
+
+	public void setMonAdresse(Adresse monAdresse) {
+		this.monAdresse = monAdresse;
 	}
 
 }
