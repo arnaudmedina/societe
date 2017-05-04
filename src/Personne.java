@@ -18,6 +18,13 @@ public class Personne {
 		setAge(monAge);
 	}
 
+	public boolean equalsto(Personne autrePersonne) {
+		if ((autrePersonne.nom == nom) && (autrePersonne.prenom == prenom) && (autrePersonne.age == age))
+			return true;
+		else
+			return false;
+	}
+
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
@@ -25,9 +32,9 @@ public class Personne {
 		message = prenom + " " + nom;
 		if (age != 0)
 			message += " " + age + " ans";
-		if ((monAdresse==null) || (monAdresse.toString().length()==1))
+		if ((monAdresse == null) || (monAdresse.toString().length() == 1))
 			return message;
-		else 
+		else
 			message += " " + monAdresse.toString();
 		return message;
 	}
