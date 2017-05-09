@@ -1,49 +1,70 @@
 
 public class Refugie extends Personne {
-	boolean estRegularise;
+	boolean bRegularise;
 
-	public boolean isEstRegularise() {
-		return estRegularise;
-	}
-
-	public void setEstRegularise(boolean estRegularise) {
-		this.estRegularise = estRegularise;
-	}
-
+	// constructeur prenom nom
 	public Refugie(String prenom, String nom) {
 		super(prenom, nom);
-		setEstRegularise(false);
-		// TODO Auto-generated constructor stub
+		setRegularise(false);
 	}
-
+	
+	// constructeur prenom nom age
 	public Refugie(String monPrenom, String monNom, int monAge) {
 		super(monPrenom, monNom, monAge);
-		// TODO Auto-generated constructor stub
+		setRegularise(false);
 	}
 
+	// constructeur prenom nom age statutRegularise
+	public Refugie(String monPrenom, String monNom, int monAge, boolean estRegularise) {
+		super(monPrenom, monNom, monAge);
+		setRegularise(estRegularise);
+	}
+
+	// constructeur prenom nom age statutRegularise adresse
+	public Refugie(String monPrenom, String monNom, int monAge, boolean estRegularise, Adresse monadrese) {
+		super(monPrenom, monNom, monAge);
+		setRegularise(estRegularise);
+	}
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		String message;
 		message = super.toString();
-		message += estRegularise ? ", est regularise" : ", n'est pas régularisé.";
+		message += bRegularise ? ", est regularise" : ", n'est pas régularisé.";
 		return message;
 	}
 
+	// Méthode régulariser avec un mot de passe
 	public boolean regulariser(String pass) {
-		if (pass.contentEquals("simplon")) {
-			setEstRegularise(true);
-			return true;
-		} else
-			return false;
-
-	}
-
-	boolean demenager(String numeroDeVoie, String nomDeVoie, int codePostal, String ville) {
-		if (estRegularise) {
-			monAdresse = new Adresse(numeroDeVoie, nomDeVoie, codePostal, ville);
-			return true;
+		boolean bRetour = false;
+		
+		if (pass.equals("simplon")) {
+			setRegularise(true);
+			bRetour = true;
 		}
-		return false;
+		return bRetour;
 	}
+
+
+	// getters et setters pour le booléen régularise
+	public boolean isRegularise() {
+		return bRegularise;
+	}
+
+	public void setRegularise(boolean estRegularise) {
+		this.bRegularise = estRegularise;
+	}
+	
+	public boolean setMonAdresse(Adresse monAdresse) {
+		boolean operationOk;
+		
+		if (bRegularise){
+			this.monAdresse = monAdresse;
+			operationOk = true;
+		}
+		else
+			operationOk = false;
+		return operationOk;
+	}
+	
 }
